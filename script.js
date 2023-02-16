@@ -28,6 +28,22 @@ function classificarIMC(imc, nome){
     }
 }
 
+function exibirResultado(resultado){
+    document.querySelector("#descricao-resutado").innerText(resultado)
+}
 
 
+const botaoDeCalcular = document.querySelector("#botao-calcular")
+
+botaoDeCalcular.addEventListener("onclick", e => {
+    e.preventDefault()
+
+    const nome = document.querySelector("#nome").nodeValue
+    const altura = document.querySelector("#altura").nodeValue
+    const peso = document.querySelector("#peso").nodeValue
+
+    const imc = calcularIMC(altura, peso)
+    resultado = classificarIMC(imc, nome)
+    exibirResultado(resultado)
+})
 
